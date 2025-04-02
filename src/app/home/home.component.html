@@ -1,0 +1,12 @@
+<section>
+    <form>
+        <input type="text" placeholder="Filter by book" />
+        <button class="primary" type="button">Search</button>
+    </form>
+</section>
+<section class="results">
+    <app-books-location 
+    *ngFor="let libretto of librettiList"
+    [librettoRicevuto]="libretto">
+    </app-books-location>
+</section>
