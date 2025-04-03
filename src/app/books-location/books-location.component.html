@@ -1,5 +1,11 @@
-<section class="listing"> <img class="listing-photo" src={{librettoRicevuto.imagejpeg}}
+<!-- <section class="listing"> <img class="listing-photo" src={{librettoRicevuto.imagejpeg}}
     alt="Exterior photo of {{ librettoRicevuto.title }}" crossorigin />
 <h2 class="listing-heading">{{ librettoRicevuto.title }}</h2>
 <p class="listing-location">{{ librettoRicevuto.authors }}, {{ librettoRicevuto.subjects }}</p>
+</section> -->
+
+<section class="listing"> 
+    <img class="listing-photo" src="{{librettoRicevuto['imagejpeg']}}" alt="Exterior photo of {{ librettoRicevuto.title }}">
+    <h2 class="listing-heading">{{ librettoRicevuto.title }}</h2>
+    <p class="listing-location">{{ librettoRicevuto.authors[0].name }} / {{ librettoRicevuto.subjects[0] }}</p>
 </section>
