@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Book} from './book';
+import {Book} from './model/book';
 @Injectable({
   providedIn: 'root',
 })
@@ -150,5 +150,12 @@ export class BookService {
   }
   getBooksById(id: number): Book | undefined {
     return this.librettiList.find((book) => book.id === id);
+  }
+  submitApplication(title: string, imagejpeg: string, summaries: string[]){
+    alert("cazzo clicchi");
+    const id = Math.max(...this.librettiList.map(o => o.id))+1;
+    const newBook: Book = {id, title, imagejpeg, summaries};
+    console.log(newBook)
+    this.librettiList.push(newBook);
   }
 }

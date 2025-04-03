@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Book } from '../book';
 import { BooksLocationComponent } from '../books-location/books-location.component';
-import { BookService } from '../book.service';
+import { BookService } from '../../book.service';
+import { Book } from '../../model/book';
 
 
 @Component({

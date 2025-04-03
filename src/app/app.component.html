@@ -1,10 +1,11 @@
 <main>      
-  <header class="brand-name">        
-      <img class="brand-logo" src="/assets/home.png" alt="logo" aria-hidden="true" />      
+  <header class="brand-name">
+    <a [routerLink]="['/']">       
+      <img class="brand-logo" src="/assets/home.png" alt="logo" aria-hidden="true" />    
+    </a>   
+    <a [routerLink]="['add-book']"><button>aggiungi un libro</button></a>
   </header>      
   <section class="content">        
-      <app-home></app-home>      
+      <router-outlet></router-outlet>      
   </section>    
 </main>
-
-<router-outlet />

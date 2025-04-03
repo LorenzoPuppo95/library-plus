@@ -1,0 +1,14 @@
+<article>
+    <section class="listing-apply">
+        <h2 class="section-heading">Apply now to live here</h2>
+        <form [formGroup]="applyForm" (submit)="submitApplication()">
+            <label for="title">Title</label>
+            <input id="title" type="text" formControlName="title" />
+            <label for="imagejpeg">Image Link</label>
+            <input id="imagejpeg" type="text" formControlName="imagejpeg" />
+            <label for="summaries">Summary</label>
+            <input id="summaries" type="text" formControlName="summaries" />
+            <button type="submit" class="primary">Apply now</button>
+        </form>
+    </section>
+</article>
