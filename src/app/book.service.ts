@@ -145,17 +145,42 @@ export class BookService {
       "imagejpeg": "https://www.gutenberg.org/cache/epub/11/pg11.cover.medium.jpg"
     }
   ];
+
+  private localStorageKey = 'books';
+  
+  constructor() {
+    this.loadBooksFromLocalStorage();
+  }
+
+  private loadBooksFromLocalStorage(): void {
+    const savedBooks = localStorage.getItem(this.localStorageKey);
+    if (savedBooks) {
+      this.librettiList = JSON.parse(savedBooks);
+    } else {
+      this.librettiList = [...this.librettiList];
+      this.saveBooksToLocalStorage();
+    }
+  }
+
+  private saveBooksToLocalStorage(): void {
+    localStorage.setItem(this.localStorageKey, JSON.stringify(this.librettiList));
+  }
+
   getAllBooks(): Book[] {
     return this.librettiList;
   }
+
   getBooksById(id: number): Book | undefined {
     return this.librettiList.find((book) => book.id === id);
   }
+
   submitApplication(title: string, imagejpeg: string, summaries: string[]){
     alert("cazzo clicchi");
     const id = Math.max(...this.librettiList.map(o => o.id))+1;
     const newBook: Book = {id, title, imagejpeg, summaries};
-    console.log(newBook)
+    console.log(newBook);
     this.librettiList.push(newBook);
+    this.saveBooksToLocalStorage();
+    window.location.href = "/";
   }
 }
